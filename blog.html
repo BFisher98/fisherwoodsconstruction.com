@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Fisher Woods Construction LLC | Utah Contractor Tips & Advice</title>
+  <meta name="description" content="Construction tips, project ideas, and contractor advice from Fisher Woods Construction LLC — Utah's trusted general contractor." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #F5F0E8;
+      --bark:      #3B2A13;
+      --gold:      #8B6914;
+      --pine:      #3A5040;
+      --sand:      #C9A96E;
+      --text:      #2C2016;
+      --text-light:#6B5440;
+      --radius:    6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--bark);
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-wrap img { height: 44px; width: auto; }
+
+    .logo-text {
+      color: var(--sand);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--sand);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--gold); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--pine);
+      padding: 60px 8%;
+      text-align: center;
+    }
+
+    .page-hero p {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+
+    .page-hero .sub {
+      color: rgba(245,240,232,0.7);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      font-weight: 300;
+      letter-spacing: normal;
+      text-transform: none;
+      opacity: 1;
+    }
+
+    /* ── BLOG GRID ── */
+    .blog-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 8%;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    /* ── POST CARD ── */
+    .post-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 16px rgba(59,42,19,0.08);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(59,42,19,0.13);
+    }
+
+    .post-card-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-meta {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pine);
+      margin-bottom: 10px;
+    }
+
+    .post-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--bark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .post-card p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .read-more {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 2px solid var(--sand);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .read-more:hover { color: var(--bark); border-color: var(--bark); }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-light);
+    }
+    .empty-state h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--bark);
+      margin-bottom: 12px;
+    }
+    .empty-state p { max-width: 420px; margin: 0 auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bark);
+      color: rgba(245,240,232,0.6);
+      padding: 36px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.85rem;
+    }
+    footer strong { color: var(--sand); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-right { text-align: right; }
+
+    @media (max-width: 760px) {
+      header { flex-direction: column; gap: 14px; text-align: center; }
+      nav { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+      nav a { margin-left: 0; }
+      footer { flex-direction: column; text-align: center; }
+      footer .footer-right { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-wrap">
+    <img src="FWC_Logo.png" alt="Fisher Woods Construction LLC Logo" height="44" />
+    <div class="logo-text">
+      Fisher Woods Construction
+      <span>LLC · Licensed &amp; Insured</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">About</a>
+    <a href="index.html#bid-request">Get a Bid</a>
+    <a href="blog.html" class="active">Blog</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <p>Fisher Woods Construction</p>
+  <h1>Construction Tips &amp; Advice</h1>
+  <p class="sub">Helpful guides, project ideas, and honest contractor advice for Utah homeowners and businesses.</p>
+</section>
+
+<section class="blog-section">
+  <div class="blog-grid" id="blog-grid">
+
+    <!-- 
+      ========================================================
+      HOW TO ADD A NEW BLOG POST:
+      Copy the block below, paste it at the TOP of this grid,
+      update the title, date, excerpt, and link, then save.
+      ========================================================
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <p class="post-meta">Month DD, YYYY &nbsp;·&nbsp; Category</p>
+        <h2>Your Post Title Goes Here</h2>
+        <p>A 2-3 sentence summary of what the post covers. Keep it compelling so people want to click through and read more.</p>
+        <a href="posts/your-post-filename.html" class="read-more">Read More →</a>
+      </div>
+    </article>
+
+    -->
+
+    <!-- SAMPLE POST — replace with your first real post -->
+    <article class="post-card">
+      <div class="post-card-body">
+        <p class="post-meta">June 2026 &nbsp;·&nbsp; Remodels</p>
+        <h2>How Much Does a Basement Finish Cost in Utah?</h2>
+        <p>Finishing a basement is one of the best investments a Utah homeowner can make. Here's an honest breakdown of what to expect on cost, timeline, and what to watch out for.</p>
+        <a href="posts/basement-finish-cost-utah.html" class="read-more">Read More →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <strong>Fisher Woods Construction LLC</strong><br>
+    Utah Licensed General Contractor
+  </div>
+  <div class="footer-right">
+    © <span id="yr"></span> Fisher Woods Construction LLC · All rights reserved<br>
+    <a href="mailto:fisherwoodsconstruction@gmail.com">fisherwoodsconstruction@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.facebook.com/share/1JEDErUEBZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/fisherwoodsconstruction" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
